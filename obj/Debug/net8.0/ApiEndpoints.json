@@ -1,0 +1,18 @@
+[
+  {
+    "ContainingType": "Dolgozat.Controllers.ComputerController",
+    "Method": "AddComputer",
+    "RelativePath": "api/Computer",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "comp",
+        "Type": "Dolgozat.Models.DtoS.AddCompuerDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
