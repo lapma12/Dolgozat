@@ -112,7 +112,29 @@ namespace Dolgozat.Controllers
                 return BadRequest(new { message = "Hiba az adatbázis művelet során", result = "" });
             }
         }
-        
+        [HttpDelete]
 
+        public IActionResult DeleteComputer(int id) 
+        {
+            try
+            {
+                using (var context = new ComputerDbContext())
+                {
+                    var comp = context.Computers.FirstOrDefault(c => c.Id == id);
+                    if (comp != null)
+                    {
+                        context.Computers.Remove(comp);
+                        context.SaveChanges();
+                        return Ok(new { message = "Computer törölve sikeresen", result = comp });
+                    }
+                    return NotFound(new { message = "Nincs computer", result = "" });
+                }
+            catch (Exception)
+            {
+                return BadRequest(new { message = "Hiba az adatbázis művelet során", result = "" });
+            }
+
+        }
+        
     }
 }
