@@ -84,5 +84,35 @@ namespace Dolgozat.Controllers
                 return BadRequest(new { message = "Hiba az adatbázis művelet során", result = "" });
             }
         }
+
+        [HttpPut]
+        public IActionResult UpdateComputer(int id,UpdateComputerDto comp)
+        {
+            try
+            {
+                using (var context = new ComputerDbContext())
+                {
+                    var existingComp = context.Computers.FirstOrDefault(c => c.Id == id);
+                    if (existingComp != null)
+                    {
+                        existingComp.Brand = comp.Brand;
+                        existingComp.Type = comp.Type;
+                        existingComp.Display = comp.Display;
+                        existingComp.Memory = comp.Memory;
+                        existingComp.UpdateTime = DateTime.Now;
+
+                        context.SaveChanges();
+                        return Ok(new { message = "Computer frissítve sikeresen", result = existingComp });
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                return BadRequest(new { message = "Hiba az adatbázis művelet során", result = "" });
+            }
+        }
+        
+
     }
 }
