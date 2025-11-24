@@ -77,5 +77,51 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Dolgozat.Controllers.ComputerController",
+    "Method": "GetAllCompWithOS",
+    "RelativePath": "api/Computer/Lekerdezes1",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Dolgozat.Controllers.ComputerController",
+    "Method": "GetAllCompWithOS2",
+    "RelativePath": "api/Computer/Lekerdezes2",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Dolgozat.Controllers.OsController",
+    "Method": "AddNewOS",
+    "RelativePath": "api/Os",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "os",
+        "Type": "Dolgozat.Models.DtoS.AddOsDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Dolgozat.Controllers.OsController",
+    "Method": "GetAllOs",
+    "RelativePath": "api/Os",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
   }
 ]

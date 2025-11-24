@@ -15,6 +15,6 @@ namespace Dolgozat.Models
 
         public DateTime UpdateTime { get; set; }
 
-        public virtual ICollection<Os> OsList { get; set; } = new List<Os>();
+        public virtual ICollection<Os> Os { get; set; } = new List<Os>();
     }
 }

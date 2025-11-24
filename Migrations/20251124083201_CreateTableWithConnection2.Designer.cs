@@ -3,6 +3,7 @@ using System;
 using Dolgozat.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Dolgozat.Migrations
 {
     [DbContext(typeof(ComputerDbContext))]
-    partial class ComputerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251124083201_CreateTableWithConnection2")]
+    partial class CreateTableWithConnection2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -56,7 +59,7 @@ namespace Dolgozat.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int?>("ComputerId")
+                    b.Property<int>("ComputerId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -73,15 +76,17 @@ namespace Dolgozat.Migrations
             modelBuilder.Entity("Dolgozat.Models.Os", b =>
                 {
                     b.HasOne("Dolgozat.Models.Computer", "Computer")
-                        .WithMany("Os")
-                        .HasForeignKey("ComputerId");
+                        .WithMany("OsList")
+                        .HasForeignKey("ComputerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Computer");
                 });
 
             modelBuilder.Entity("Dolgozat.Models.Computer", b =>
                 {
-                    b.Navigation("Os");
+                    b.Navigation("OsList");
                 });
 #pragma warning restore 612, 618
         }

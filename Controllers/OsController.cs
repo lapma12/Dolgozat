@@ -16,7 +16,8 @@ namespace Dolgozat.Controllers
             {
                 var newOs = new Os
                 {
-                    Name = os.Name
+                    Name = os.Name,
+                    ComputerId = os.ComputerId
                 };
                 using (var context = new ComputerDbContext())
                 {

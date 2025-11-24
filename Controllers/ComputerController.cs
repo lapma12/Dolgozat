@@ -2,6 +2,7 @@
 using Dolgozat.Models.DtoS;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Dolgozat.Controllers
 {
@@ -136,6 +137,49 @@ namespace Dolgozat.Controllers
             }
 
         }
-        
+
+        [HttpGet("Lekerdezes1")]
+        public IActionResult GetAllCompWithOS()
+        {
+            try
+            {
+                using (var context = new ComputerDbContext())
+                {
+                    var compwithos = context.Os.Include(o => o.Computer).ToList();
+                    if (compwithos != null)
+                    {
+                        return Ok(new { message = "Computerek és OS-ek lekérve sikeresen", result = compwithos });
+                    }
+                    return NotFound(new { message = "Nincs computer vagy OS", result = "" });
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { message = ex.Message, result = "" });
+            }
+        }
+        [HttpGet("Lekerdezes2")]
+        public IActionResult GetAllCompWithOS2()
+        {
+            try
+            {
+                using (var context = new ComputerDbContext())
+                {
+                    var compwithos = context.Computers.Include(c => c.Os).ToList();
+                    if (compwithos != null)
+                    {
+                        return Ok(new { message = "Computerek és OS-ek lekérve sikeresen", result = compwithos });
+                    }
+                    return NotFound(new { message = "Nincs computer vagy OS", result = "" });
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { message = ex.Message, result = "" });
+            }
+        }
+
+
+
     }
 }
