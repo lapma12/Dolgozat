@@ -104,6 +104,7 @@ namespace Dolgozat.Controllers
                         context.SaveChanges();
                         return Ok(new { message = "Computer frissítve sikeresen", result = existingComp });
                     }
+                    return NotFound(new { message = "Nincs computer", result = "" });
                 }
             }
             catch (Exception)
@@ -129,6 +130,7 @@ namespace Dolgozat.Controllers
                     }
                     return NotFound(new { message = "Nincs computer", result = "" });
                 }
+            }
             catch (Exception)
             {
                 return BadRequest(new { message = "Hiba az adatbázis művelet során", result = "" });

@@ -12,5 +12,7 @@ namespace Dolgozat.Models
         public int Memory { get; set; }
 
         public DateTime CreatedTime { get; set; } = DateTime.Now;
+
+        public DateTime? UpdateTime { get; set; }
     }
 }
