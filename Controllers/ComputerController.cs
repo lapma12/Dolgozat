@@ -10,7 +10,6 @@ namespace Dolgozat.Controllers
     public class ComputerController : ControllerBase
     {
         [HttpPost]
-
         public IActionResult AddComputer(AddCompuerDto comp)
         {
             try
@@ -56,10 +55,10 @@ namespace Dolgozat.Controllers
                     return NotFound(new { message = "Nincs computer", result = "" });
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                return BadRequest(new { message = "Hiba az adatbázis művelet során", result = "" });
+                return BadRequest(new { message = ex.Message, result = "" });
             }
         }
 

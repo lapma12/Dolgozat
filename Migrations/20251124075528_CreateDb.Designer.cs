@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Dolgozat.Migrations
 {
     [DbContext(typeof(ComputerDbContext))]
-    [Migration("20251124071410_AddNewProperties")]
-    partial class AddNewProperties
+    [Migration("20251124075528_CreateDb")]
+    partial class CreateDb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -44,6 +44,9 @@ namespace Dolgozat.Migrations
                     b.Property<string>("Type")
                         .IsRequired()
                         .HasColumnType("longtext");
+
+                    b.Property<DateTime>("UpdateTime")
+                        .HasColumnType("datetime(6)");
 
                     b.HasKey("Id");
 

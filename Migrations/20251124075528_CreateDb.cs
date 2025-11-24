@@ -7,7 +7,7 @@ using MySql.EntityFrameworkCore.Metadata;
 namespace Dolgozat.Migrations
 {
     /// <inheritdoc />
-    public partial class AddNewProperties : Migration
+    public partial class CreateDb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -25,7 +25,8 @@ namespace Dolgozat.Migrations
                     Type = table.Column<string>(type: "longtext", nullable: false),
                     Display = table.Column<double>(type: "double", nullable: false),
                     Memory = table.Column<int>(type: "int", nullable: false),
-                    CreatedTime = table.Column<DateTime>(type: "datetime(6)", nullable: false)
+                    CreatedTime = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    UpdateTime = table.Column<DateTime>(type: "datetime(6)", nullable: false)
                 },
                 constraints: table =>
                 {

@@ -27,6 +27,43 @@
   },
   {
     "ContainingType": "Dolgozat.Controllers.ComputerController",
+    "Method": "UpdateComputer",
+    "RelativePath": "api/Computer",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "comp",
+        "Type": "Dolgozat.Models.DtoS.UpdateComputerDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Dolgozat.Controllers.ComputerController",
+    "Method": "DeleteComputer",
+    "RelativePath": "api/Computer",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Dolgozat.Controllers.ComputerController",
     "Method": "GetCompuetById",
     "RelativePath": "api/Computer/byId",
     "HttpMethod": "GET",

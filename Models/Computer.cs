@@ -13,6 +13,6 @@ namespace Dolgozat.Models
 
         public DateTime CreatedTime { get; set; } = DateTime.Now;
 
-        public DateTime? UpdateTime { get; set; }
+        public DateTime UpdateTime { get; set; }
     }
 }
