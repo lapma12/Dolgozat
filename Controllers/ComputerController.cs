@@ -32,10 +32,10 @@ namespace Dolgozat.Controllers
                     return NotFound(new { message = "Nincs computer", result = "" });
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                return BadRequest(new { message = "Hiba az adatbázis művelet során", result = "" });
+                return BadRequest(new { message = ex.Message, result = "" });
             }
 
         }
@@ -77,10 +77,10 @@ namespace Dolgozat.Controllers
                     return NotFound(new { message = "Nincs computer", result = "" });
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                return BadRequest(new { message = "Hiba az adatbázis művelet során", result = "" });
+                return BadRequest(new { message = ex.Message, result = "" });
             }
         }
 
@@ -106,10 +106,10 @@ namespace Dolgozat.Controllers
                     return NotFound(new { message = "Nincs computer", result = "" });
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                return BadRequest(new { message = "Hiba az adatbázis művelet során", result = "" });
+                return BadRequest(new { message = ex.Message, result = "" });
             }
         }
         [HttpDelete]
@@ -130,9 +130,9 @@ namespace Dolgozat.Controllers
                     return NotFound(new { message = "Nincs computer", result = "" });
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return BadRequest(new { message = "Hiba az adatbázis művelet során", result = "" });
+                return BadRequest(new { message = ex.Message, result = "" });
             }
 
         }
